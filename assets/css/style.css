@@ -50,7 +50,7 @@ body {
     max-width: var(--bodyWidth); /* 675px; */
     width: auto;
     margin: 35px auto 20px;
-    background-color: #EEE;
+    /* background-color: #EEE; */
 }
 
 #trackboard ul {
@@ -63,12 +63,19 @@ body {
     margin: 0;
     height: var(--habitHeight);
     
-    border-top: dashed var(--accentColor) 1px;
+    border-bottom: dashed var(--accentColor) 1px;
     
     overflow: hidden;
 }
 
-#trackboard ul:first-child {
+#trackboard ul.header {
+    height: 20px;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    border-bottom: none;
+}
+
+#trackboard ul:nth-child(2) {
     border-top: solid var(--accentColor) 1px;
 }
 
@@ -87,7 +94,9 @@ ul.header:before, ul.habit:before {
     text-align: right;
     padding-right: 4px;
     margin-right: 4px;
+}
     
+ul.habit:before {
     line-height: var(--habitHeight);
     
     background-color: var(--accentColor);
@@ -97,6 +106,7 @@ ul.header:before, ul.habit:before {
     float: left;
     width: 40px;
     height: 100%;
+    flex: 1;
     
     display: inline-block;
     
@@ -105,27 +115,36 @@ ul.header:before, ul.habit:before {
     background-color: var(--bgColor);
 }
 
+ul li {
+    border-right: dashed #EEE 1px;
+}
+
+ul.header li {
+    border: solid var(--accentColor) 1px;
+    border-radius: 25px;
+    margin: 0 2px;
+}
+
+ul.habit li:last-child {
+    border-right: none;
+}
+
+ul.header {
+    line-height: calc(var(--habitHeight) - 12px);
+}
+
 ul.habit, ul.habitchanger li span {
     line-height: var(--habitHeight);
 }
 
-ul.habit li:hover {
+#trackboard ul.habit li:hover {
     background-color: var(--accentColor);
     color: var(--bgColor);
-}
-
-ul.header:before {
-    background-color: transparent;
-    line-height: 40px;
 }
 
 #trackboard ul.header li {
     background-color: transparent;
     font-size: 0.4rem;
-}
-
-ul.header li span {
-    line-height: 40px;
 }
 
 #trackboard ul.habitchanger {
